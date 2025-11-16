@@ -21,6 +21,20 @@ include `config.json`, `manifest.json`, and one `trial_XXX.npz` per simulation.
 Set `--no-save` for quick smoke tests, `--output-root` to customize the run
 directory, and `--tag` to append a suffix (e.g., parameter sweep name).
 
+### Batch Sweeps
+
+Use `sweep.py` to run multiple configs/seeds in one shot:
+
+```bash
+python experiments/associate_manifold/sweep.py \
+  --sweep-config experiments/associate_manifold/configs/sweep_example.json \
+  --output-root runs/associate_manifold --trials 1
+```
+
+Each variant is written under `runs/associate_manifold/associate/<sweep_id>/seed<seed>/…`
+so all artifacts for the same operation stay grouped. Pass `--dry-run` to print
+commands without executing them.
+
 ## Output Format
 
 Each `.npz` file stores, for every tracked area (A/B/C):

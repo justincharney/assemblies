@@ -5,3 +5,4 @@ cpp/bazel-*
 !experiments/*/*.md
 .venv/
 runs/
+**/generated/
