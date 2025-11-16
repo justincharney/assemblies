@@ -16,10 +16,12 @@ python experiments/associate_manifold/associate_recorder.py \
   --trials 1 --dump-records
 ```
 
-Artifacts are written under `runs/associate_manifold/<timestamp>_<tag>/` and
-include `config.json`, `manifest.json`, and one `trial_XXX.npz` per simulation.
+Artifacts are written under `runs/associate_manifold/<operation>/<sweep_id>/seed<seed>/<timestamp>_<tag>/`
+and include `config.json`, `manifest.json`, and one `trial_XXX.npz` per simulation.
 Set `--no-save` for quick smoke tests, `--output-root` to customize the run
 directory, and `--tag` to append a suffix (e.g., parameter sweep name).
+`--trials` controls how many independent cue/target pairs you simulate per
+config/seed; each trial produces its own `.npz` and overlap score.
 
 ### Batch Sweeps
 
@@ -56,3 +58,8 @@ dense_c = data["C_dense"]
 
 The manifest also records the overlap score computed by projecting `stimA` and
 `stimB` separately into area C after training for quick sanity checks.
+
+> **Note on scale:** `sweep_example.json` targets the paper-scale regime
+> (n≈10^6, p≈10^-3, k≈10^2-10^3). Those runs are computationally heavy, so use a
+> smaller config (e.g., `associate_small.json`) while iterating on analysis code
+> and switch to the large-scale sweep once you’re ready to generate final data.

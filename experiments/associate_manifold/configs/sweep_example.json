@@ -1,20 +1,16 @@
 {
-  "sweep_id": "beta_sparsity",
+  "sweep_id": "paper_scale",
   "base_config": {
-    "n_neurons": 4096,
-    "k": 128,
-    "p": 0.02,
-    "stability_rounds": 8,
-    "a_to_c_rounds": 8,
-    "b_to_c_rounds": 8,
-    "overlap_rounds": 10,
-    "post_b_rounds": 8,
+    "n_neurons": 1000000,
+    "k": 500,
+    "p": 0.001,
+    "stability_rounds": 12,
+    "a_to_c_rounds": 12,
+    "b_to_c_rounds": 12,
+    "overlap_rounds": 15,
+    "post_b_rounds": 12,
     "record_dense": false
   },
-  "variants": [
-    {"beta": 0.05},
-    {"beta": 0.08},
-    {"beta": 0.10}
-  ],
+  "variants": [{ "beta": 0.05 }, { "beta": 0.08 }, { "beta": 0.1 }],
   "seeds": [0, 1, 2]
 }
