@@ -1,0 +1,13 @@
+{
+  "seed": 0,
+  "n_neurons": 1024,
+  "k": 64,
+  "p": 0.05,
+  "beta": 0.08,
+  "stability_rounds": 5,
+  "a_to_c_rounds": 5,
+  "b_to_c_rounds": 5,
+  "overlap_rounds": 8,
+  "post_b_rounds": 5,
+  "record_dense": true
+}

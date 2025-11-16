@@ -1,2 +1,7 @@
 __pycache__
 cpp/bazel-*
+*.md
+!nemo/*.md
+!experiments/*/*.md
+.venv/
+runs/
