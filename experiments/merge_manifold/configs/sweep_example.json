@@ -1,0 +1,18 @@
+{
+  "sweep_id": "merge_beta_rounds",
+  "base_config": {
+    "n_neurons": 1000000,
+    "k": 512,
+    "p": 0.005,
+    "a_stabilize_rounds": 10,
+    "b_stabilize_rounds": 10,
+    "merge_rounds": 40,
+    "record_dense": true
+  },
+  "variants": [
+    {"beta": 0.08},
+    {"beta": 0.05},
+    {"beta": 0.03}
+  ],
+  "seeds": [0, 1, 2]
+}

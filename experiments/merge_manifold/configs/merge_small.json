@@ -1,0 +1,11 @@
+{
+  "seed": 0,
+  "n_neurons": 4096,
+  "k": 128,
+  "p": 0.02,
+  "beta": 0.05,
+  "a_stabilize_rounds": 6,
+  "b_stabilize_rounds": 6,
+  "merge_rounds": 20,
+  "record_dense": true
+}
