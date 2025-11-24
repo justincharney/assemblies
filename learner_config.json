@@ -1,0 +1,17 @@
+{
+    "p": 0.05,
+    "LEX_k": 50,
+    "LEX_n": 10000,
+    "num_nouns": 2,
+    "num_verbs": 2,
+    "beta": 0.06,
+    "training_rounds": 30,
+    "sentences": [
+        ["CAT", "JUMP"],
+        ["CAT", "RUN"],
+        ["DOG", "JUMP"],
+        ["DOG", "RUN"]
+    ],
+    "output_file": "learner_data.npz",
+    "num_trials": 10
+}

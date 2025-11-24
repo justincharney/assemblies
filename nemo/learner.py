@@ -164,8 +164,8 @@ def single_word_tutoring_exp(lex_size_start, lex_size_end, p=0.05, LEX_k=50, LEX
 
 class LearnBrain(brain.Brain):
 	def __init__(self, p, PHON_k=100, CONTEXTUAL_k=100, EXPLICIT_k=100, LEX_k=100, LEX_n=10000, beta=0.06, proj_rounds=2,
-		CORE_k=10, bilingual=False, LANG_k=100, num_nouns=2, num_verbs=2, extra_context_areas=0, extra_context_area_k=10, extra_context_model="B", extra_context_delay=0):
-		brain.Brain.__init__(self, p)
+		CORE_k=10, bilingual=False, LANG_k=100, num_nouns=2, num_verbs=2, extra_context_areas=0, extra_context_area_k=10, extra_context_model="B", extra_context_delay=0, seed=0):
+		brain.Brain.__init__(self, p, seed=seed)
 		self.bilingual = bilingual
 
 		# make this sum of #verbs + #nouns, more easily adjustable
@@ -272,7 +272,7 @@ class LearnBrain(brain.Brain):
 	def activate_PHON(self, word):
 		self.activate(PHON, PHON_INDICES[word])
 
-	def project_star(self, mutual_inhibition=False):
+	def project_star(self, mutual_inhibition=False, step_callback=None):
 		# compute the initial (t=1) project map; NOUN and VERB do not yet have any winners
 		project_map = {PHON: [NOUN, VERB]}
 		if self.area_by_name[MOTOR].winners:
@@ -288,6 +288,8 @@ class LearnBrain(brain.Brain):
 					project_map[extra_context_area_name] = [NOUN, VERB]
 					print("PROJECTING FROM EXTRA AREA " + str(extra_context_area_name))
 		self.project({}, project_map)
+		if step_callback:
+			step_callback(self)
 
 
 		# for subsequent rounds, now include recurrent firing + firing from NOUN/VERB
@@ -314,14 +316,16 @@ class LearnBrain(brain.Brain):
 
 		for _ in range(self.proj_rounds):
 			self.project({}, project_map)
+			if step_callback:
+				step_callback(self)
 
-	def parse_sentence(self, sentence):
+	def parse_sentence(self, sentence, step_callback=None):
 		# sentence in the form [NOUN verb]
 		for word in sentence:
 			self.activate_context(word)
 		for word in sentence:
 			self.activate_PHON(word)
-			self.project_star()
+			self.project_star(step_callback=step_callback)
 		self.sentences_parsed += 1
 
 	def parse_indexed_sentence(self, noun_index, verb_index, order="NV"):
@@ -470,7 +474,7 @@ class LearnBrain(brain.Brain):
 			if i == index:
 				return word
 
-	def test_verb(self, word, min_overlap=0.75):
+	def test_verb(self, word, min_overlap=0.75, step_callback=None):
 		self.disable_plasticity = True
 		self.area_by_name[PHON].unfix_assembly()
 		self.activate_context(word)
@@ -481,7 +485,11 @@ class LearnBrain(brain.Brain):
 		if self.bilingual:
 			first_proj_map[LANG] = [VERB]
 		self.project({}, first_proj_map)
+		if step_callback:
+			step_callback(self)
 		self.project({}, {VERB: [PHON]})
+		if step_callback:
+			step_callback(self)
 		self.disable_plasticity = False
 		return self.get_PHON(min_overlap)
 
@@ -501,7 +509,7 @@ class LearnBrain(brain.Brain):
 		self.disable_plasticity = False
 		return out
 
-	def test_noun(self, word, min_overlap=0.75):
+	def test_noun(self, word, min_overlap=0.75, step_callback=None):
 		self.disable_plasticity = True
 		self.area_by_name[PHON].unfix_assembly()
 		self.activate_context(word)
@@ -512,7 +520,11 @@ class LearnBrain(brain.Brain):
 		if self.bilingual:
 			first_proj_map[LANG] = [NOUN]
 		self.project({}, first_proj_map)
+		if step_callback:
+			step_callback(self)
 		self.project({}, {NOUN: [PHON]})
+		if step_callback:
+			step_callback(self)
 		self.disable_plasticity = False
 		return self.get_PHON(min_overlap)
 
