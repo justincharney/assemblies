@@ -1,2 +1,5 @@
 __pycache__
 cpp/bazel-*
+*.md
+*.png
+.venv
