@@ -3,3 +3,4 @@ cpp/bazel-*
 *.md
 *.png
 .venv
+*.npz

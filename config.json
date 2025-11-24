@@ -1,0 +1,16 @@
+{
+  "sentences": [
+    "dogs chase cats",
+    "cats chase mice",
+    "mice bite dogs",
+    "dogs love people",
+    "people love dogs"
+  ],
+  "language": "English",
+  "p": 0.05,
+  "LEX_k": 20,
+  "project_rounds": 20,
+  "output_file": "assemblies_data.npz",
+  "verbose": false,
+  "num_trials_per_sentence": 10
+}

@@ -340,8 +340,8 @@ RUSSIAN_READOUT_RULES = {
 }
 
 class ParserBrain(brain.Brain):
-	def __init__(self, p, lexeme_dict={}, all_areas=[], recurrent_areas=[], initial_areas=[], readout_rules={}):
-		brain.Brain.__init__(self, p)
+	def __init__(self, p, lexeme_dict={}, all_areas=[], recurrent_areas=[], initial_areas=[], readout_rules={}, seed=0):
+		brain.Brain.__init__(self, p, seed=seed)
 		self.lexeme_dict = lexeme_dict
 		self.all_areas = all_areas
 		self.recurrent_areas = recurrent_areas
@@ -462,7 +462,7 @@ class ParserBrain(brain.Brain):
 
 class RussianParserBrain(ParserBrain):
 	def __init__(self, p, non_LEX_n=10000, non_LEX_k=100, LEX_k=10, 
-		default_beta=0.2, LEX_beta=1.0, recurrent_beta=0.05, interarea_beta=0.5, verbose=False):
+		default_beta=0.2, LEX_beta=1.0, recurrent_beta=0.05, interarea_beta=0.5, verbose=False, seed=0):
 
 		recurrent_areas = [NOM, VERB, ACC, DAT]
 		ParserBrain.__init__(self, p, 
@@ -470,7 +470,8 @@ class RussianParserBrain(ParserBrain):
 			all_areas=RUSSIAN_AREAS, 
 			recurrent_areas=recurrent_areas,
 			initial_areas=[LEX],
-			readout_rules=RUSSIAN_READOUT_RULES)
+			readout_rules=RUSSIAN_READOUT_RULES,
+			seed=seed)
 		self.verbose = verbose
 
 		LEX_n = RUSSIAN_LEX_SIZE * LEX_k
@@ -499,13 +500,14 @@ class RussianParserBrain(ParserBrain):
 
 class EnglishParserBrain(ParserBrain):
 	def __init__(self, p, non_LEX_n=100000, non_LEX_k=50, LEX_k=20, 
-		default_beta=0.2, LEX_beta=1.0, recurrent_beta=0.05, interarea_beta=0.5, verbose=False):
+		default_beta=0.2, LEX_beta=1.0, recurrent_beta=0.05, interarea_beta=0.5, verbose=False, seed=0):
 		ParserBrain.__init__(self, p, 
 			lexeme_dict=LEXEME_DICT, 
 			all_areas=AREAS, 
 			recurrent_areas=RECURRENT_AREAS, 
 			initial_areas=[LEX, SUBJ, VERB],
-			readout_rules=ENGLISH_READOUT_RULES)
+			readout_rules=ENGLISH_READOUT_RULES,
+			seed=seed)
 		self.verbose = verbose
 
 		LEX_n = LEX_SIZE * LEX_k
@@ -668,28 +670,28 @@ class ReadoutMethod(Enum):
 
 
 def parse(sentence="cats chase mice", language="English", p=0.1, LEX_k=20, 
-	project_rounds=30, verbose=True, debug=False, readout_method=ReadoutMethod.FIBER_READOUT):
+	project_rounds=30, verbose=True, debug=False, readout_method=ReadoutMethod.FIBER_READOUT, step_callback=None, seed=0):
 
 	if language == "English":
-		b = EnglishParserBrain(p, LEX_k=LEX_k, verbose=verbose)
+		b = EnglishParserBrain(p, LEX_k=LEX_k, verbose=verbose, seed=seed)
 		lexeme_dict = LEXEME_DICT
 		all_areas = AREAS
 		explicit_areas = EXPLICIT_AREAS
 		readout_rules = ENGLISH_READOUT_RULES
 
 	if language == "Russian":
-		b = RussianParserBrain(p, LEX_k=LEX_k, verbose=verbose)
+		b = RussianParserBrain(p, LEX_k=LEX_k, verbose=verbose, seed=seed)
 		lexeme_dict = RUSSIAN_LEXEME_DICT
 		all_areas = RUSSIAN_AREAS
 		explicit_areas = RUSSIAN_EXPLICIT_AREAS
 		readout_rules = RUSSIAN_READOUT_RULES
 
 	parseHelper(b, sentence, p, LEX_k, project_rounds, verbose, debug, 
-		lexeme_dict, all_areas, explicit_areas, readout_method, readout_rules)
+		lexeme_dict, all_areas, explicit_areas, readout_method, readout_rules, step_callback)
 
 
 def parseHelper(b, sentence, p, LEX_k, project_rounds, verbose, debug, 
-	lexeme_dict, all_areas, explicit_areas, readout_method, readout_rules):
+	lexeme_dict, all_areas, explicit_areas, readout_method, readout_rules, step_callback=None):
 	debugger = ParserDebugger(b, all_areas, explicit_areas)
 
 	sentence = sentence.split(" ")
@@ -730,6 +732,8 @@ def parseHelper(b, sentence, p, LEX_k, project_rounds, verbose, debug,
 
 		for i in range(project_rounds):
 			b.parse_project()
+			if step_callback:
+				step_callback(b)
 			if verbose:
 				proj_map = b.getProjectMap()
 				print("Got proj_map = ")
@@ -762,6 +766,8 @@ def parseHelper(b, sentence, p, LEX_k, project_rounds, verbose, debug,
 			b.area_by_name[DEP_CLAUSE].unfix_assembly()
 			for i in range(project_rounds):
 				b.parse_project()
+			if step_callback:
+				step_callback(b)
 			print("Finished DEP_CLAUSE projecting")
 			saved_inner_start = word_index+1 
 			# refresh the machine correctly-- importantly, DEP_CLAUSE stays on 
@@ -793,6 +799,8 @@ def parseHelper(b, sentence, p, LEX_k, project_rounds, verbose, debug,
 						b.area_by_name[area].winners = []
 				proj_map = b.getProjectMap()
 				b.parse_project()
+			if step_callback:
+				step_callback(b)
 				for rule in lexeme["POST_RULES"]:
 					b.applyRule(rule)
 			b.disable_plasticity = False
