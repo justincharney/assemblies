@@ -296,6 +296,14 @@ class WordOrderBrain(brain.Brain):
         if record_callback:
             record_callback(self)
 
+        # CRITICAL: Train MOOD → first role connection
+        # This is how the brain learns which role comes first for each word order
+        first_role = word_sequence[0][1]  # role_area of first word
+        for _ in range(self.proj_rounds):
+            self.project({}, {MOOD: [first_role]})
+        if record_callback:
+            record_callback(self)
+
         # Process each word in sequence
         prev_syntax_area = None
         for word_idx, role_area, syntax_area in word_sequence:
@@ -345,9 +353,35 @@ class WordOrderBrain(brain.Brain):
             return None
         return winner
 
+    def get_total_connection_strength(self, from_area, to_area):
+        """
+        Calculate total synaptic connection strength from one area to another.
+        Uses the connectome weights from winners in from_area to all neurons in to_area.
+        """
+        from_winners = self.area_by_name[from_area].winners
+        if not from_winners:
+            return 0.0
+
+        if from_area not in self.connectomes:
+            return 0.0
+        if to_area not in self.connectomes[from_area]:
+            return 0.0
+
+        connectome = self.connectomes[from_area][to_area]
+        total = 0.0
+        for w in from_winners:
+            if w < connectome.shape[0]:
+                # Sum all connection weights from this winner neuron
+                total += np.sum(connectome[w, :])
+        return total
+
     def generate_sentence(self, agent_idx, action_idx, patient_idx=None):
         """
         Generate a sentence from a scene.
+
+        The key mechanism: MOOD→ROLE connections learned during training
+        determine which role fires first. Stronger connections (from more
+        training) lead to higher total synaptic weight.
 
         Returns:
             List of role area names in generated order
@@ -358,8 +392,13 @@ class WordOrderBrain(brain.Brain):
         # Disable plasticity during generation
         self.disable_plasticity = True
 
-        # Setup scene in ROLE areas
+        # Setup scene - this creates assemblies representing the meaning
         self.setup_scene(agent_idx, action_idx, patient_idx)
+
+        # Save role assemblies for later use
+        saved_assemblies = {}
+        for role in [ROLE_AGENT, ROLE_ACTION, ROLE_PATIENT]:
+            saved_assemblies[role] = list(self.area_by_name[role].winners)
 
         generated_roles = []
         role_to_syntax = {
@@ -377,32 +416,37 @@ class WordOrderBrain(brain.Brain):
         self.activate(MOOD, 0)
 
         for i in range(expected_length):
-            # Project from MOOD or previous syntax to role areas
             proj_targets = [r for r in available_roles if r not in used_roles]
             if not proj_targets:
                 break
 
             if i == 0:
-                # First word: MOOD determines which role fires first
-                self.project({}, {MOOD: proj_targets})
+                # First word: Use actual connection strength from MOOD to each role
+                # This reflects the Hebbian learning from training
+                best_role = None
+                best_strength = -1
+
+                for role in proj_targets:
+                    strength = self.get_total_connection_strength(MOOD, role)
+                    if strength > best_strength:
+                        best_strength = strength
+                        best_role = role
+
             else:
                 # Subsequent: Previous syntax area determines next role
                 prev_syntax = role_to_syntax[generated_roles[-1]]
-                # Only project if syntax area has winners
-                if self.area_by_name[prev_syntax].winners:
-                    self.project({}, {prev_syntax: proj_targets})
 
-            # Find role with highest activation (mutual inhibition)
-            best_role = None
-            best_activation = 0
+                # Use connection strength from previous syntax to remaining roles
+                best_role = None
+                best_strength = -1
 
-            for role in proj_targets:
-                activation = len(self.area_by_name[role].winners)
-                if activation > best_activation:
-                    best_activation = activation
-                    best_role = role
+                for role in proj_targets:
+                    strength = self.get_total_connection_strength(prev_syntax, role)
+                    if strength > best_strength:
+                        best_strength = strength
+                        best_role = role
 
-            if best_role is None or best_activation == 0:
+            if best_role is None:
                 # Fallback: pick first available role
                 for role in proj_targets:
                     best_role = role
@@ -414,14 +458,14 @@ class WordOrderBrain(brain.Brain):
             generated_roles.append(best_role)
             used_roles.add(best_role)
 
-            # Project winner role to its syntax area (only if role has winners)
+            # Restore the semantic assembly for the winning role
+            self.area_by_name[best_role].winners = saved_assemblies[best_role]
+
+            # Project winner role to its syntax area to strengthen connections
             syntax_area = role_to_syntax[best_role]
             if self.area_by_name[best_role].winners:
                 for _ in range(self.proj_rounds):
                     self.project({}, {best_role: [syntax_area]})
-                    # Recurrent in syntax
-                    if self.area_by_name[syntax_area].winners:
-                        self.project({}, {syntax_area: [syntax_area]})
 
         self.disable_plasticity = False
         return generated_roles
