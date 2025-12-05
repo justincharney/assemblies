@@ -1,0 +1,7 @@
+Area,Effective Dimensionality (PR),Dim (95% Var),Linearity (Geo/Euc Corr),Max Geodesic Dist (Diameter),Avg Local Curvature (Res. Var),H0 (Components) Max Lifetime,H0 (Components) Avg Lifetime,H0 (Components) Total Persistence,H0 (Components) Feature Count,H1 (Loops) Max Lifetime,H1 (Loops) Avg Lifetime,H1 (Loops) Total Persistence,H1 (Loops) Feature Count,H2 (Voids) Max Lifetime,H2 (Voids) Avg Lifetime,H2 (Voids) Total Persistence,H2 (Voids) Feature Count,Avg Inter-Sentence Dist
+NOUN_VERB,1.0,1,1.0,14.142135623730951,5.172331245087508e-92,14.142135620117188,14.142135620117188,14.142135620117188,2,0,0,0,0,0,0,0,0,0.0
+MOTOR,,1,,0.0,0.0,0.0,0.0,0.0,1,0,0,0,0,0,0,0,0,0.0
+VISUAL,,1,,0.0,0.0,0.0,0.0,0.0,1,0,0,0,0,0,0,0,0,0.0
+SEQ,2.676266520296053,5,0.9999999999999999,10.0,0.08139148450795045,8.366600036621094,5.514182607332866,33.08509564399719,7,0,0,0,0,0,0,0,0,0.0
+MOOD,,1,,0.0,0.0,0.0,0.0,0.0,1,0,0,0,0,0,0,0,0,0.0
+CORE,1.1560693641618498,2,1.0,4.47213595499958,8.147428578476154e-34,4.242640495300293,2.828427016735077,5.656854033470154,3,0,0,0,0,0,0,0,0,0.0

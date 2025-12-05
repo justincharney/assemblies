@@ -576,7 +576,7 @@ class LearnBrain(brain.Brain):
 # uses the SEQ area mechanism for learning word order statistics
 class SimpleSyntaxBrain(brain.Brain):
 	def __init__(self, p, CONTEXTUAL_k=100, EXPLICIT_k=100, beta=0.06, LEX_n=10000, LEX_k=100, proj_rounds=2, CORE_k=10):
-		brain.Brain__init__(self, p)
+		brain.Brain.__init__(self, p)
 		# Q: Do we need to "rewire" inside these areas (make the explicit assemblies more highly connected?)
 		self.add_explicit_area(NOUN_VERB, 4*EXPLICIT_k, EXPLICIT_k, beta)
 		# self.add_explicit_area(VERB, 2*EXPLICIT_k, EXPLICIT_k, beta)
@@ -686,6 +686,21 @@ class SimpleSyntaxBrain(brain.Brain):
 		self.area_by_name[CORE].unfix_assembly()
 		self.area_by_name[NOUN_VERB].unfix_assembly()
 
+	def get_explicit_assembly(self, area_name, min_overlap=0.75):
+		if not self.area_by_name[area_name].winners:
+			raise Exception("Cannot get word because no assembly in " + area_name)
+		winners = set(self.area_by_name[area_name].winners)
+		area = self.area_by_name[area_name]
+		area_k = area.k
+		threshold = min_overlap * area_k
+		num_assemblies = int(area.n / area.k)
+		for index in range(num_assemblies):
+			assembly_start = index * area_k
+			assembly = set(range(assembly_start, assembly_start + area_k))
+			if len((winners & assembly)) >= threshold:
+				return index 
+		print("Got non-assembly in " + area_name)
+		return None
 
 	# an experiment that trains the brain with 2 word sentences, possibly with 2 different moods / word orders
 	def train(self, order, train_rounds=40, train_interrogative=False):
