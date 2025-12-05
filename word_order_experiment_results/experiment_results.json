@@ -1,0 +1,1312 @@
+{
+  "config": {
+    "p": 0.05,
+    "n": 10000,
+    "k": 50,
+    "beta": 0.05,
+    "num_nouns": 2,
+    "num_trans_verbs": 2,
+    "num_intrans_verbs": 2,
+    "num_sentences": 50,
+    "trans_ratio": 0.7,
+    "proj_rounds": 5,
+    "seed_base": 42
+  },
+  "num_trials": 20,
+  "results": {
+    "SVO": {
+      "overall_success_rate": 1.0,
+      "trans_success_rate": 1.0,
+      "intrans_success_rate": 1.0,
+      "trials": [
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            3,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            3,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            3,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": true,
+          "intrans_success": true,
+          "overall_success": true,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        }
+      ]
+    },
+    "OVS": {
+      "overall_success_rate": 0.0,
+      "trans_success_rate": 0.0,
+      "intrans_success_rate": 1.0,
+      "trials": [
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            3,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            3,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            3,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            0,
+            2,
+            1
+          ],
+          "withheld_intrans": [
+            0,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            3,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            4
+          ]
+        },
+        {
+          "trans_success": false,
+          "intrans_success": true,
+          "overall_success": false,
+          "trans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION",
+            "ROLE_PATIENT"
+          ],
+          "trans_expected": [
+            "ROLE_PATIENT",
+            "ROLE_ACTION",
+            "ROLE_AGENT"
+          ],
+          "intrans_generated": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "intrans_expected": [
+            "ROLE_AGENT",
+            "ROLE_ACTION"
+          ],
+          "withheld_trans": [
+            1,
+            2,
+            0
+          ],
+          "withheld_intrans": [
+            1,
+            5
+          ]
+        }
+      ]
+    }
+  }
+}
