@@ -4,3 +4,4 @@ cpp/bazel-*
 *.png
 .venv
 *.npz
+*.html
