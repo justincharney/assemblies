@@ -60,6 +60,6 @@ The manifest also records the overlap score computed by projecting `stimA` and
 `stimB` separately into area C after training for quick sanity checks.
 
 > **Note on scale:** `sweep_example.json` targets the paper-scale regime
-> (n≈10^6, p≈10^-3, k≈10^2-10^3). Those runs are computationally heavy, so use a
+> $(n \approx 10^6, p \approx 10^-3, k \approx 10^2-10^3)$. Those runs are computationally heavy, so use a
 > smaller config (e.g., `associate_small.json`) while iterating on analysis code
 > and switch to the large-scale sweep once you’re ready to generate final data.
