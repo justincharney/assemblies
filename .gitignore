@@ -5,3 +5,5 @@ cpp/bazel-*
 .venv
 *.npz
 *.html
+!WORD_ORDER_EXPERIMENT_README.md
+.DS_Store
