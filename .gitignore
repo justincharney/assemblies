@@ -6,3 +6,4 @@ cpp/bazel-*
 .venv/
 runs/
 **/generated/
+visuals

@@ -80,7 +80,7 @@ class ABConfig:
                            (each cycle consists of one A_to_B step followed
                             by one B_to_A step)
 
-      - record_dense     : if True, ActivityRecorder stores dense (T × n)
+      - record_dense     : if True, ActivityRecorder stores dense (T x n)
                            binary matrices in addition to winner indices,
                            which is convenient for manifold methods but
                            heavier on disk and RAM.

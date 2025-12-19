@@ -1,0 +1,12 @@
+{
+  "seed":             123,
+  "n_neurons":        8192,
+  "k_A":              512,
+  "k_B":              256,
+  "p":                0.02,
+  "beta_A":           0.05,
+  "beta_B":           0.10,
+  "stabilize_rounds": 30,
+  "assoc_cycles":     100,
+  "record_dense":     true
+}
