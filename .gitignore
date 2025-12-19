@@ -1,2 +1,10 @@
 __pycache__
 cpp/bazel-*
+.venv/
+.DS_Store
+*.md
+!README.md
+*.npz
+plots/
+word_order_experiment_results/
+learner_plots/
